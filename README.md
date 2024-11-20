@@ -1,5 +1,8 @@
 postaman guide 
-GET http://localhost:8081/utilisateurs/api/entreprise 
+GET "linkhttp://localhost:8081/utilisateurs/api/entreprise"
 'listEntreprise'
-GET http://localhost:8081/utilisateurs/rest
+GET "linkhttp://localhost:8081/utilisateurs/rest"
 'listUtilisateur'
+"linkhttp://localhost:8081/utilisateurs/api/entreprise/1/status?status=TRIAL"
+@RequestParam
+UpdateStatus
