@@ -2,11 +2,9 @@ package com.deviwse.admindashboard.restcontrollers;
 
 import com.deviwse.admindashboard.model.Entreprise;
 import com.deviwse.admindashboard.repos.EntrepriseRepository;
+import com.deviwse.admindashboard.service.EntrepriseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +19,18 @@ public class EntrepriseRESTController {
     @RequestMapping(method = RequestMethod.GET)
     public List<Entreprise> getAllEntreprise() {
         return entrepriseRepository.findAll();
+    }
+
+    @Autowired
+    private EntrepriseService entrepriseService;
+
+    @PostMapping("/{id}/status")
+    public Entreprise updateStatus(@PathVariable Long id, @RequestParam Entreprise.Status status) {
+        return entrepriseService.setEntrepriseStatus(id, status);
+    }
+
+    @GetMapping("/{id}/isActive")
+    public boolean isEntrepriseActive(@PathVariable Long id) {
+        return entrepriseService.isEntrepriseActive(id);
     }
 }

@@ -4,10 +4,7 @@ package com.deviwse.admindashboard.restcontrollers;
 import com.deviwse.admindashboard.model.Utilisateur;
 import com.deviwse.admindashboard.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,4 +21,8 @@ public class UtilisateurRESTController {
         return utilisateurService.getAllUtilisateur();
     }
 
+    @GetMapping("/{id}/isActive")
+    public boolean isUserActive(@PathVariable Long id) {
+        return utilisateurService.isUserActive(id);
+    }
 }

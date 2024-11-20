@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface UtilisateurService {
     List<Utilisateur> getAllUtilisateur();
+    boolean isUserActive(Long utilisateurId);
 }
