@@ -2,7 +2,6 @@ package com.deviwse.admindashboard.service;
 
 import com.deviwse.admindashboard.model.Entreprise;
 import com.deviwse.admindashboard.model.Utilisateur;
-import com.deviwse.admindashboard.repos.EntrepriseRepository;
 import com.deviwse.admindashboard.repos.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +16,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     public List<Utilisateur> getAllUtilisateur() {
-        return utilisateurService.getAllUtilisateur();
-    }
+        return utilisateurRepository.findAll();    }
 
     @Autowired
     private UtilisateurRepository utilisateurRepository;

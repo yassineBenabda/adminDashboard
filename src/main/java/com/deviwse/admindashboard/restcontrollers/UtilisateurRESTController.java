@@ -16,7 +16,7 @@ public class UtilisateurRESTController {
     @Autowired
     UtilisateurService utilisateurService;
 
-    @GetMapping("all")
+    @GetMapping("/all")
     List<Utilisateur> getAllUtilisateur() {
         return utilisateurService.getAllUtilisateur();
     }
