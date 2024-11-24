@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/entreprise")
@@ -32,5 +33,10 @@ public class EntrepriseRESTController {
     @GetMapping("/{id}/isActive")
     public boolean isEntrepriseActive(@PathVariable Long id) {
         return entrepriseService.isEntrepriseActive(id);
+    }
+
+    @GetMapping("/userSums")
+    public Map<Long, Long> getUserSums() {
+        return entrepriseService.sumNumberOfUsersByEntreprise();
     }
 }
